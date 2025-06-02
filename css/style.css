@@ -1,0 +1,200 @@
+/* ===========================
+    ROOT VARIABLES
+   =========================== */
+    :root {
+    /* Base Colors */
+    --color-beige: #C2B8A3;
+    --color-olive: #A0A083;
+    --color-forest: #6F7D5D;
+    --color-brown: #4E4B41;
+    --color-bg: #F9F6F0;
+    --color-white: #FFFFFF;
+
+    /* Usage Aliases */
+    --color-text: var(--color-brown);           /* Main text color */
+    --color-heading: var(--color-brown);        /* Headings */
+    --color-accent: var(--color-olive);         /* Buttons, highlights */
+    --color-background: var(--color-bg);        /* Body background */
+    --color-surface: var(--color-beige);        /* Header, cards */
+    --color-footer-bg: var(--color-forest);     /* Footer background */
+    --color-footer-text: var(--color-white);    /* Footer text */
+
+    /* Fonts */
+    --font-title: 'Playfair Display', serif;    /* Optional title font */
+    --font-text: 'Inter', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+}
+
+/* ===========================
+    RESET STYLES
+    =========================== */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    html, body {
+        height: 100%;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Remove default list styles */
+    ul, ol {
+        list-style: none;
+    }
+    
+    /* Anchor tag reset */
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    /* Image reset - removes bottom whitespace */
+    img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+    
+    /* Form elements reset */
+    input, button, textarea, select {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: none;
+        outline: none;
+    }
+    
+    /* Button specific reset */
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    
+    /* Prevent iOS input zoom on focus */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"] {
+        font-size: 16px;
+    }
+    
+
+
+    /* ===========================
+    GLOBAL STYLES
+   =========================== */
+body {
+    font-family: var(--font-text);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/* ===========================
+    HEADER STYLES
+   =========================== */
+header {
+    background-color: var(--color-surface);
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--color-text);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+
+.nav-item a {
+    font-weight: bold;
+    color: var(--color-highlight);
+    transition: color 0.3s;
+}
+
+.nav-item a:hover {
+    color: var(--color-text);
+}
+
+/* ===========================
+    HERO SECTION
+   =========================== */
+.hero-section {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.hero-button {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+    background-color: var(--color-highlight);
+    color: var(--color-white);
+}
+
+/* ===========================
+    COMMON SECTION STYLES
+   =========================== */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: var(--color-text);
+}
+
+.section-text {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+/* ===========================
+    FOOTER STYLES
+   =========================== */
+.site-footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
