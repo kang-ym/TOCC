@@ -1,0 +1,47 @@
+✅ TOCC 홈페이지 제작 계획표
+🎯 스타일: Beige & Olive 감성 스타일
+🎨 컬러 팔레트: #F9F6F0, #C2B8A3, #A0A083, #6F7D5D, #4E4B41
+
+1️⃣ 전체 디자인 방향
+- 톤앤매너: 따뜻하고 고요한 자연미 + 안정감 있는 컬러 조합
+- 메인 컬러: #F9F6F0 (배경), #C2B8A3, #A0A083 (버튼/포인트)
+- 텍스트 컬러: #4E4B41 (짙은 본문), #6F7D5D (부드러운 강조 텍스트)
+- 폰트:
+  • 제목용: Playfair Display  
+    https://fonts.google.com/specimen/Playfair+Display  
+  • 본문용 (일본어): Noto Sans JP  
+    https://fonts.google.com/specimen/Noto+Sans+JP  
+  • 본문용 (한국어): Noto Sans KR  
+    https://fonts.google.com/specimen/Noto+Sans+KR  
+  • 본문용 (영어): Inter  
+    https://fonts.google.com/specimen/Inter
+- 레이아웃: 스크롤형 랜딩 페이지 (1페이지 구성)
+
+2️⃣ 구성 섹션 계획
+0. 상단 Head 영역 - 교회 로고, 네비게이션 (예배안내, 소개, 소식, 문의 등)  
+1. 상단 Hero 배너 - 교회명, 슬로건, 예배안내 버튼  
+2. 교회 소개 - TOCC의 비전, 담임목사 인사말  
+3. 예배 시간 안내 - 요일별 예배 시간, 지도 링크 포함  
+4. 교회 소식/일정 - Google Calendar 연동 or 리스트로 보여주기  
+5. 문의하기 - 전화번호, 이메일, 문의 폼  
+6. 푸터 - 저작권, SNS, 다국어 전환 링크 등
+
+3️⃣ 개발 및 작업 방식
+- 제작 방식: HTML/CSS/JS 직접 제작 후 WordPress로 이식 고려  
+- 작업 환경: 로컬에서 디자인 + 테스트 후 배포  
+- 최종 구현: WordPress 테마 또는 Elementor 재현  
+- 관리 방식: 관리자(교회 분들)가 쉽게 수정 가능한 구조 염두
+
+4️⃣ 우선 작업 단계
+✅ Step 1: Beige & Olive 기반 스타일 CSS 정의  
+✅ Step 2: Hero 섹션 시안 제작 (Playfair Display, Beige & Olive 적용)  
+⏳ Step 3: 예배 안내 섹션 제작  
+⏳ Step 4: 소식/캘린더 UI 구조 구성  
+⏳ Step 5: WordPress 이식 대비 구조화 (header, section, footer 분리 등)
+
+🎁 사용 컬러 코드 요약 (Beige & Olive 스타일)
+- 배경 (Main BG): #F9F6F0  
+- 포인트 베이지: #C2B8A3  
+- 자연 올리브: #A0A083  
+- 부드러운 포레스트: #6F7D5D  
+- 짙은 브라운: #4E4B41
