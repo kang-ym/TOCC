@@ -1,11 +1,13 @@
 ✅ TOCC 홈페이지 제작 계획표
-🎯 스타일: Beige & Olive 감성 스타일
-🎨 컬러 팔레트: #F9F6F0, #C2B8A3, #A0A083, #6F7D5D, #4E4B41
+🎯 스타일: Fresh Sage & Cream 감성 스타일
+🎨 컬러 팔레트: #FAF9F6, #C7D2C2, #DCE4DF, #E6D8C3, #484B4C
 
 1️⃣ 전체 디자인 방향
-- 톤앤매너: 따뜻하고 고요한 자연미 + 안정감 있는 컬러 조합
-- 메인 컬러: #F9F6F0 (배경), #C2B8A3, #A0A083 (버튼/포인트)
-- 텍스트 컬러: #4E4B41 (짙은 본문), #6F7D5D (부드러운 강조 텍스트)
+- 톤앤매너: 밝고 고요한 청량함 + 자연스러운 따뜻함 + 세련된 고급스러움
+- 메인 컬러: #FAF9F6 (전체 배경), #DCE4DF (카드/섹션), #C7D2C2 (포인트)
+- 포인트 컬러: #E6D8C3 (따뜻한 베이지), #C7D2C2 (세이지 그린)
+- 텍스트 컬러: #484B4C (Charcoal Gray)
+- 내비게이션 텍스트: #2C2C2C (명확한 대비용 텍스트)
 - 폰트:
   • 제목용: Playfair Display  
     https://fonts.google.com/specimen/Playfair+Display  
@@ -33,15 +35,27 @@
 - 관리 방식: 관리자(교회 분들)가 쉽게 수정 가능한 구조 염두
 
 4️⃣ 우선 작업 단계
-✅ Step 1: Beige & Olive 기반 스타일 CSS 정의  
-✅ Step 2: Hero 섹션 시안 제작 (Playfair Display, Beige & Olive 적용)  
+✅ Step 1: Fresh Sage & Cream 기반 스타일 CSS 정의  
+✅ Step 2: Hero 섹션 시안 제작 (Playfair Display, 청량 팔레트 적용)  
 ⏳ Step 3: 예배 안내 섹션 제작  
 ⏳ Step 4: 소식/캘린더 UI 구조 구성  
 ⏳ Step 5: WordPress 이식 대비 구조화 (header, section, footer 분리 등)
 
-🎁 사용 컬러 코드 요약 (Beige & Olive 스타일)
-- 배경 (Main BG): #F9F6F0  
-- 포인트 베이지: #C2B8A3  
-- 자연 올리브: #A0A083  
-- 부드러운 포레스트: #6F7D5D  
-- 짙은 브라운: #4E4B41
+🎁 사용 CSS 변수 (Fresh Sage & Cream 스타일)
+
+:root {
+    --color-cream-white: #FAF9F6;
+    --color-sage-green: #C7D2C2;
+    --color-mint-gray: #DCE4DF;
+    --color-soft-sand: #E6D8C3;
+    --color-charcoal-gray: #484B4C;
+
+    --color-background: var(--color-cream-white);
+    --color-surface: var(--color-mint-gray);
+    --color-accent: var(--color-sage-green);
+    --color-highlight: var(--color-soft-sand);
+    --color-text: var(--color-charcoal-gray);
+    --color-footer-bg: var(--color-sage-green);
+    --color-footer-text: #ffffff;
+    --color-nav-text: #2C2C2C;
+}

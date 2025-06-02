@@ -2,22 +2,22 @@
     ROOT VARIABLES
    =========================== */
     :root {
-    /* Base Colors */
-    --color-beige: #C2B8A3;
-    --color-olive: #A0A083;
-    --color-forest: #6F7D5D;
-    --color-brown: #4E4B41;
-    --color-bg: #F9F6F0;
-    --color-white: #FFFFFF;
+            /* 🎨 Base Colors */
+    --color-cream-white: #FAF9F6;       /* 전체 배경용 - 따뜻한 크림 화이트 */
+    --color-sage-green: #C7D2C2;        /* 부드러운 연한 세이지그린 */
+    --color-mint-gray: #DCE4DF;         /* 중간톤 박스, 배경용 그레이민트 */
+    --color-soft-sand: #E6D8C3;         /* 모래빛 베이지 - 따뜻한 포인트 */
+    --color-charcoal-gray: #484B4C;     /* 본문 텍스트용 딥 그레이 */
 
-    /* Usage Aliases */
-    --color-text: var(--color-brown);           /* Main text color */
-    --color-heading: var(--color-brown);        /* Headings */
-    --color-accent: var(--color-olive);         /* Buttons, highlights */
-    --color-background: var(--color-bg);        /* Body background */
-    --color-surface: var(--color-beige);        /* Header, cards */
-    --color-footer-bg: var(--color-forest);     /* Footer background */
-    --color-footer-text: var(--color-white);    /* Footer text */
+    /* 🧩 Usage Aliases */
+    --color-background: var(--color-cream-white);
+    --color-surface: var(--color-mint-gray);
+    --color-accent: var(--color-sage-green);
+    --color-highlight: var(--color-soft-sand);
+    --color-text: var(--color-charcoal-gray);
+    --color-footer-bg: var(--color-sage-green);  /* 자연 느낌을 강조한 푸터 */
+    --color-footer-text: #ffffff;
+    
 
     /* Fonts */
     --font-title: 'Playfair Display', serif;    /* Optional title font */
@@ -124,7 +124,7 @@ header {
 
 .nav-item a {
     font-weight: bold;
-    color: var(--color-highlight);
+    color: var(--color-text);
     transition: color 0.3s;
 }
 
