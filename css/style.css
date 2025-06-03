@@ -103,8 +103,14 @@ body {
     HEADER STYLES
    =========================== */
 header {
-    background-color: var(--color-surface);
-    padding: 16px 32px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: transparent;
+    padding: 0 2%;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,7 +118,7 @@ header {
 
 .logo {
     font-family: var(--font-title);
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--color-text);
 }
 
@@ -123,7 +129,7 @@ header {
 }
 
 .nav-item a {
-    font-weight: bold;
+    font-weight: 600;
     color: var(--color-text);
     transition: color 0.3s;
 }
@@ -135,39 +141,162 @@ header {
 /* ===========================
     HERO SECTION
    =========================== */
-.hero-section {
-    background-color: var(--color-accent);
-    color: var(--color-white);
+   .hero-section {
+    position: relative;
+    height: 100vh;
+    background-color: #FDF3DB;
+    overflow: hidden;
+}
+
+.hero-illustration {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.layer-back {
+    z-index: 1;
+}
+
+.layer-middle {
+    z-index: 2;
+}
+
+.layer-front {
+    z-index: 3;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 10;
     text-align: center;
-    padding: 80px 20px;
+    top: 30%;
+    transform: translateY(-50%);
+    color: #484B4C;
 }
 
 .hero-title {
     font-family: var(--font-title);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 3.8rem;
+    margin-bottom: 10px;
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+    font-family: var(--font-text);
+    font-size: 1.4rem;
+    font-weight: 600;
+    opacity: 0.8;
 }
 
-.hero-button {
-    background-color: var(--color-surface);
-    color: var(--color-text);
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+
+/* cloud */
+.clouds{
+    display: block;
+}
+.clouds{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+.cloud{
+    position: absolute;
+    width: 180px;
+    height: 60px;
+    opacity: .9;
+}
+.cloud:nth-child(1){
+    top: 12%;
+    transform: scale(.9);
+    animation:  float 35s -18s infinite linear;
+}
+.cloud:nth-child(2){
+    top: 28%;
+    transform: scale(1.1);
+    animation:  float 32s -3s infinite linear;
+}
+.cloud:nth-child(3){
+    top: 45%;
+    transform: scale(.85);
+    animation:  float 28s -12s infinite linear;
+}
+.cloud:nth-child(4){
+    top: 33%;
+    transform: scale(1.2);
+    animation:  float 30s -7s infinite linear;
+}
+.cloud:nth-child(5){
+    top: 67%;
+    transform: scale(.95);
+    animation:  float 34s -15s infinite linear;
+}
+.cloud:nth-child(6){
+    top: 52%;
+    transform: scale(1.15);
+    animation:  float 36s -4s infinite linear;
+}
+.cloud:nth-child(7){
+    top: 82%;
+    transform: scale(.8);
+    animation:  float 33s -9s infinite linear;
+}
+.cloud:nth-child(8){
+    top: 73%;
+    transform: scale(1.05);
+    animation:  float 37s -21s infinite linear;
 }
 
-.hero-button:hover {
-    background-color: var(--color-highlight);
-    color: var(--color-white);
+.cloud--part{
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(5px);
 }
-
+.cloud--part:nth-child(1){
+    width: 60px;
+    height: 60px;
+    top: -25px;
+    left: 20px;
+}
+.cloud--part:nth-child(2){
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    left: 60px;
+}
+.cloud--part:nth-child(3){
+    width: 55px;
+    height: 55px;
+    top: -20px;
+    left: 100px;
+}
+.cloud--base{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    filter: blur(5px);
+    bottom: 0;
+}
+@keyframes float {
+	from {
+		transform: translateX(-20vw);
+	}
+	to {
+		transform: translateX(100vw);
+	}
+}
 /* ===========================
     COMMON SECTION STYLES
    =========================== */
