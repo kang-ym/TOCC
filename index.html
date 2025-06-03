@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <!-- js -->
     <script src="./src/header-visibility.js" defer></script>
+    <script src="./src/about.js" defer></script>
 
 </head>
 <body>
@@ -109,11 +110,45 @@
     </section>
     
 
-    <!-- about -->
-    <section id="about" class="section about-section">
-        <h2 class="section-title">教会のビジョンとご挨拶</h2>
-        <p class="section-text">ここに教会紹介やビジョン、牧師のメッセージなどが入ります。</p>
-    </section>
+<!-- about -->
+<section id="about" class="section about-section">
+    <h2 class="section-title">教会のビジョンとご挨拶</h2>
+
+    <!-- 스토리 탭 -->
+    <div class="story-tabs">
+        <button class="tab-button active" data-tab="start">はじまり</button>
+        <button class="tab-button" data-tab="now">今の私たち</button>
+        <button class="tab-button" data-tab="vision">これからのビジョン</button>
+    </div>
+
+    <!-- 공통 콘텐츠 영역 -->
+    <div class="tab-content-container">
+        <div class="tab-content show" data-tab="start">
+            <p>東京大山キリスト教会は、小さな家庭集会から始まりました。神様の導きの中で、少しずつ信仰の仲間が増え、地域に根差した教会として成長してきました。</p>
+        </div>
+        <div class="tab-content" data-tab="now">
+            <p>今、私たちは毎週の礼拝を中心に、祈りと交わりを大切にしています。子どもから大人まで共に信仰を分かち合い、愛と希望の場を築いています。</p>
+        </div>
+        <div class="tab-content" data-tab="vision">
+            <p>すべての人が神の愛に出会い、人生の新しい目的と希望を見つけられるように。東京だけでなく、日本全体に福音の光を届ける教会を目指しています。</p>
+        </div>
+    </div>
+
+    <!-- 키워드 강조 -->
+    <div class="keywords-section">
+        <h2 class="keywords-title">キーワードで見るTOCC</h2>
+        <div class="keywords">
+            <span data-description="神様との出会いとつながりを深める時間です。">礼拝</span>
+            <span data-description="教会は家族のように、共に喜び、支え合います。">交わり</span>
+            <span data-description="私たちの力ではなく、神様の導きを求める祈り。">祈り</span>
+            <span data-description="良い知らせ、すべての人への希望と命のメッセージ。">福音</span>
+        </div>
+        <div class="keyword-description" id="keyword-description">上のキーワードにマウスを合わせると、説明が表示されます。</div>
+    </div>
+</section>
+
+
+
 
     <!-- worship -->
     <section id="worship" class="section worship-section">
