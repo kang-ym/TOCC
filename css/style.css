@@ -163,6 +163,7 @@ header.show {
     height: 100vh;
     background-color: #FDF3DB;
     overflow: hidden;
+    margin-bottom: -5px;
 }
 
 .hero-illustration {
@@ -204,6 +205,7 @@ header.show {
 
 
 .hero-text {
+    color: var(--color-text);
     position: relative;
     z-index: 10;
     text-align: center;
@@ -343,21 +345,83 @@ header.show {
     COMMON SECTION STYLES
    =========================== */
 .section {
-    padding: 80px 20px;
+    padding: 100px 20px;
     text-align: center;
 }
 
 .section-title {
     font-family: var(--font-title);
-    font-size: 2rem;
-    margin-bottom: 16px;
+    font-size: 2.3rem;
+    margin-bottom: 60px;
     color: var(--color-text);
 }
 
 .section-text {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--color-text);
 }
+
+
+
+/* ===========================
+    SLOGAN
+   =========================== */
+    .slogan-section {
+    /* background: linear-gradient(to bottom, var(--color-surface), var(--color-background)); */
+    background: linear-gradient(to bottom, #BCBE98 0%, var(--color-surface) 12%, var(--color-background) 100%);
+    padding: 100px 20px;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.slogan-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.church-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: var(--color-text);
+}
+
+.slogan-text {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-text);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.slogan-text footer {
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #777;
+}
+.slogan-img-box{
+    position: absolute;
+    top: -300px;
+    left: -100px;
+    width: 800px;
+    z-index: 0;
+    transform: rotate(-50deg) scale(.6);
+    filter: blur(3px);
+    opacity: .2;
+
+    >img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+}
+
+
 
 /* ===========================
     FOOTER STYLES
