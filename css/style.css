@@ -102,7 +102,7 @@ body {
 /* ===========================
     HEADER STYLES
    =========================== */
-header {
+   header {
     position: fixed;
     top: 0;
     left: 0;
@@ -114,12 +114,26 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: transform 0.4s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+header.hide {
+    transform: translateY(-100%);
+}
+
+header.show {
+    transform: translateY(0);
 }
 
 .logo {
     font-family: var(--font-title);
-    font-size: 2rem;
+    font-size: 2.7rem;
     color: var(--color-text);
+    >span{
+        font-weight: var(--font-text);
+        font-size: 1rem;
+        font-weight: 600;
+    }
 }
 
 .nav-menu {
@@ -129,19 +143,22 @@ header {
 }
 
 .nav-item a {
+    padding: 5px 10px;
+    border-radius: 16px;
     font-weight: 600;
     color: var(--color-text);
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .nav-item a:hover {
+    background-color: var(--color-soft-sand);
     color: var(--color-text);
 }
 
 /* ===========================
     HERO SECTION
    =========================== */
-   .hero-section {
+.hero-section {
     position: relative;
     height: 100vh;
     background-color: #FDF3DB;
@@ -161,28 +178,42 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+    will-change: transform, filter, opacity;
 }
 
 .layer-back {
     z-index: 1;
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
 }
 
 .layer-middle {
     z-index: 2;
+    transform: scale(1);
+    filter: blur(0px);
 }
 
 .layer-front {
+    position: absolute;
     z-index: 3;
+    transform: translateX(0);
 }
+
+
 
 .hero-text {
     position: relative;
     z-index: 10;
     text-align: center;
     top: 30%;
-    transform: translateY(-50%);
+    transform: translateY(40px); /* 초기 위치 */
     color: #484B4C;
+    transition: transform 0.6s ease;
+    will-change: transform; /* 퍼포먼스 향상 */
 }
+
 
 .hero-title {
     font-family: var(--font-title);
@@ -197,90 +228,99 @@ header {
     opacity: 0.8;
 }
 
-
 /* cloud */
-.clouds{
-    display: block;
-}
-.clouds{
+.clouds {
     position: absolute;
-    z-index: -1;
+    z-index: 2;
     width: 100%;
     height: 100%;
     opacity: 1;
 }
-.cloud{
+
+.cloud {
     position: absolute;
     width: 180px;
     height: 60px;
     opacity: .9;
 }
-.cloud:nth-child(1){
+
+.cloud:nth-child(1) {
     top: 12%;
     transform: scale(.9);
-    animation:  float 35s -18s infinite linear;
-}
-.cloud:nth-child(2){
-    top: 28%;
-    transform: scale(1.1);
-    animation:  float 32s -3s infinite linear;
-}
-.cloud:nth-child(3){
-    top: 45%;
-    transform: scale(.85);
-    animation:  float 28s -12s infinite linear;
-}
-.cloud:nth-child(4){
-    top: 33%;
-    transform: scale(1.2);
-    animation:  float 30s -7s infinite linear;
-}
-.cloud:nth-child(5){
-    top: 67%;
-    transform: scale(.95);
-    animation:  float 34s -15s infinite linear;
-}
-.cloud:nth-child(6){
-    top: 52%;
-    transform: scale(1.15);
-    animation:  float 36s -4s infinite linear;
-}
-.cloud:nth-child(7){
-    top: 82%;
-    transform: scale(.8);
-    animation:  float 33s -9s infinite linear;
-}
-.cloud:nth-child(8){
-    top: 73%;
-    transform: scale(1.05);
-    animation:  float 37s -21s infinite linear;
+    animation: float 35s -28s infinite linear;
 }
 
-.cloud--part{
+.cloud:nth-child(2) {
+    top: 28%;
+    transform: scale(1.1);
+    animation: float 32s -3s infinite linear;
+}
+
+.cloud:nth-child(3) {
+    top: 15%;
+    transform: scale(.85);
+    animation: float 28s -12s infinite linear;
+}
+
+.cloud:nth-child(4) {
+    top: 33%;
+    transform: scale(1.2);
+    animation: float 30s -7s infinite linear;
+}
+
+.cloud:nth-child(5) {
+    top: 7%;
+    transform: scale(.95);
+    animation: float 34s -15s infinite linear;
+}
+
+.cloud:nth-child(6) {
+    top: 42%;
+    transform: scale(1.15);
+    animation: float 36s -4s infinite linear;
+}
+
+.cloud:nth-child(7) {
+    top: 32%;
+    transform: scale(.8);
+    animation: float 33s -9s infinite linear;
+}
+
+.cloud:nth-child(8) {
+    top: 28%;
+    transform: scale(1.05);
+    animation: float 37s -21s infinite linear;
+}
+
+.cloud--part {
     position: absolute;
     background-color: #fff;
     border-radius: 50%;
     filter: blur(5px);
 }
-.cloud--part:nth-child(1){
+
+.cloud--part:nth-child(1) {
     width: 60px;
     height: 60px;
     top: -25px;
     left: 20px;
 }
-.cloud--part:nth-child(2){
+
+.cloud--part:nth-child(2) {
     width: 70px;
     height: 70px;
     top: -30px;
     left: 60px;
 }
-.cloud--part:nth-child(3){
+
+.cloud--part:nth-child(3) {
     width: 55px;
     height: 55px;
     top: -20px;
     left: 100px;
 }
-.cloud--base{
+
+.cloud--base {
     position: absolute;
     width: 100%;
     height: 40px;
@@ -289,14 +329,16 @@ header {
     filter: blur(5px);
     bottom: 0;
 }
+
 @keyframes float {
-	from {
-		transform: translateX(-20vw);
-	}
-	to {
-		transform: translateX(100vw);
-	}
+    from {
+        transform: translateX(-20vw);
+    }
+    to {
+        transform: translateX(100vw);
+    }
 }
+
 /* ===========================
     COMMON SECTION STYLES
    =========================== */
