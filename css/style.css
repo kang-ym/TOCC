@@ -562,6 +562,156 @@ header.show {
     transform: scale(1.05);
 }
 
+/* ===========================
+    WORSHIP
+   =========================== */
+
+   .section-subdesc {
+    font-size: 1.05em;
+    color: var(--color-text);
+    margin-bottom: 1.5em;
+    transition: opacity 0.3s ease;
+}
+
+/* 섹션 정렬 */
+.section.worship-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+/* Grid 레이아웃 */
+.worship-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-rows: auto auto;
+    gap: 40px;
+}
+
+/* 공통 박스 스타일 */
+.worship-grid > div {
+    background-color: var(--color-surface);
+    padding: 20px;
+    border-radius: 12px;
+    color: var(--color-text);
+    box-sizing: border-box;
+}
+
+/* 위치 정의 */
+.schedule      { grid-column: 1; grid-row: 1; }
+.description   { grid-column: 2; grid-row: 1; position: relative; }
+.map-info      { grid-column: 1; grid-row: 2; }
+.map-embed     { grid-column: 2; grid-row: 2; display: flex; }
+
+/* 예배 리스트 */
+.worship-schedule {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.worship-schedule li {
+    background-color: var(--color-surface);
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.worship-schedule li:hover {
+    background-color: var(--color-highlight);
+    transform: scale(1.02);
+}
+.worship-schedule .title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.worship-schedule .desc {
+    display: none;
+}
+
+/* 이미지 + 설명 영역 */
+.worship-description {
+    position: relative;
+    border-radius: 12px;
+    background-color: var(--color-surface);
+    min-height: 250px;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 슬라이드 이미지들 겹쳐서 페이드 전환 */
+.image-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.image-slider.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.image-slider .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+.image-slider .slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* 설명 텍스트 페이드 */
+.desc-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1em;
+    color: var(--color-text);
+    text-align: center;
+    line-height: 1.6;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.desc-text.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 교통 안내 */
+.map-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+.access-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.8;
+    font-size: 0.95em;
+}
+
+/* 지도 */
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+    flex: 1;
+    min-height: 300px;
+}
+
 
 /* ===========================
     FOOTER STYLES

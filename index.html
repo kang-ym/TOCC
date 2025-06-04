@@ -13,6 +13,7 @@
     <!-- js -->
     <script src="./src/header-visibility.js" defer></script>
     <script src="./src/about.js" defer></script>
+    <script src="./src/worship.js" defer></script>
 
 </head>
 <body>
@@ -148,13 +149,66 @@
 </section>
 
 
+<!-- worship -->
+<section id="worship" class="section worship-section">
+    <h2 class="section-title">礼拝時間のご案内</h2>
+    <p class="section-subdesc">各礼拝にマウスを乗せて詳細をご覧ください。</p>
+
+    <div class="worship-grid">
+        <!-- 왼쪽 예배 리스트 -->
+        <div class="schedule">
+            <ul class="worship-schedule">
+                <li>
+                    <div class="title"><strong>🌅 平日早天礼拝：</strong> 毎朝 5:50</div>
+                    <div class="desc">一日の始まりを神様との時間で始めましょう。</div>
+                </li>
+                <li>
+                    <div class="title"><strong>🌙 金曜徹夜礼拝：</strong> 毎週金曜 21:00</div>
+                    <div class="desc">深い祈りで心を癒し、神様の声に耳を傾けましょう。</div>
+                </li>
+                <li>
+                    <div class="title"><strong>🇯🇵 主日礼拝（日本語）：</strong> 日曜 10:00</div>
+                    <div class="desc">地域の方々ともに礼拝を捧げます。</div>
+                </li>
+                <li>
+                    <div class="title"><strong>🇰🇷 主日礼拝（韓国語）：</strong> 日曜 14:00</div>
+                    <div class="desc">韓国語で心を込めて賛美し、御言葉に耳を傾けます。</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 오른쪽 이미지/설명 영역 -->
+        <div class="description">
+            <div class="worship-description">
+                <div class="image-slider" id="imageSlider">
+                    <img src="./img/worship1.webp" class="slide active">
+                    <img src="./img/worship2.webp" class="slide">
+                    <img src="./img/worship3.webp" class="slide">
+                    <img src="./img/worship4.webp" class="slide">
+                </div>
+                <div class="desc-text" id="descText"></div>
+            </div>
+        </div>
+
+        <!-- 교통 정보 -->
+        <div class="map-info">
+            <h3 class="map-title">⛪ 東京都板橋区板橋1-40-16 大山キリスト教会</h3>
+            <ul class="access-list">
+                <li>🚶‍♂️ 下板橋駅（東武東上線）より徒歩5分</li>
+                <li>🚶‍♀️ 板橋駅（JR埼京線）より徒歩8分</li>
+                <li>🚶‍♂️ 新板橋駅（三田線）より徒歩8分</li>
+            </ul>
+        </div>
+
+        <!-- 지도 -->
+        <div class="map-embed">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12952.407604883956!2d139.7047411281876!3d35.748300062875096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018929763e9a4d1%3A0x86f8bdbc6bbfa5c1!2s1-ch%C5%8Dme-40-16%20Itabashi%2C%20Itabashi%20City%2C%20Tokyo%20173-0004!5e0!3m2!1sko!2sjp!4v1749001309049!5m2!1sko!2sjp"
+                allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
 
 
-    <!-- worship -->
-    <section id="worship" class="section worship-section">
-        <h2 class="section-title">礼拝時間のご案内</h2>
-        <p class="section-text">日曜礼拝 10:30 / 水曜礼拝 19:00<br>地図やアクセス情報もここに表示されます。</p>
-    </section>
 
         <!-- news -->
     <section id="news" class="section news-section">
