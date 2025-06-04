@@ -569,7 +569,7 @@ header.show {
    .section-subdesc {
     font-size: 1.05em;
     color: var(--color-text);
-    margin-bottom: 1.5em;
+    margin-bottom: 80px;
     transition: opacity 0.3s ease;
 }
 
@@ -578,6 +578,9 @@ header.show {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 20px;
+    >h2{
+        margin-bottom: 20px;
+    }
 }
 
 /* Grid 레이아웃 */
@@ -610,9 +613,10 @@ header.show {
     margin: 0;
 }
 .worship-schedule li {
+    outline: 0;
     background-color: var(--color-surface);
     padding: 14px 20px;
-    margin-bottom: 12px;
+    /* margin-bottom: 12px; */
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -700,6 +704,7 @@ header.show {
     margin: 0;
     line-height: 1.8;
     font-size: 0.95em;
+    font-weight: 500;
 }
 
 /* 지도 */
@@ -758,6 +763,7 @@ header.show {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(72, 75, 76, 0.1);
     min-width: 220px;
+
 }
 
 .contact-item h3 {
@@ -769,9 +775,13 @@ header.show {
 .contact-item p, .contact-item a {
     font-size: 0.95rem;
     color: var(--color-text);
-    text-decoration: none;
+    
 }
 
+.contact-item a{
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
 /* 폼 스타일 */
 .contact-form {
     max-width: 600px;
