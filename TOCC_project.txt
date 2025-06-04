@@ -85,3 +85,28 @@
     --color-footer-text: #ffffff;
     --color-nav-text: #2C2C2C;
 }
+
+
+문의 연락
+ 해야 할 일 요약
+단계	   설명	                   수정 위치
+1	    EmailJS 가입	              -
+2	Gmail 연동 (Service 만들기)	  service_demo123 →   본인 서비스 ID
+3	템플릿 만들기 (name, email, message 포함)	            template_contact123 → 본인 템플릿 ID
+4	User ID 복사 (Public Key)	demo_user_ABC123 → 본인 User ID
+5	JavaScript 파일 수정	contact-submit.js 파일 내 3곳만 변경
+
+emailjs.init("🔁 여기에 본인 User ID"); // 예: n7xg1mKkR3xxxx
+
+emailjs.send("🔁 여기에 본인 서비스 ID", "🔁 여기에 본인 템플릿 ID", {
+    name: name,
+    email: email,
+    message: message
+})
+
+
+참고: 어디서 찾는지
+항목	찾는 위치
+User ID	EmailJS → Account Settings → Public Key
+Service ID	EmailJS → Email Services 메뉴
+Template ID	EmailJS → Email Templates 만들 때 이름

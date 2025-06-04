@@ -713,6 +713,113 @@ header.show {
 }
 
 
+
+
+
+
+/* ===========================
+    CONTACT
+   =========================== */
+
+/* 문의 섹션 전체 */
+.contact-section {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* 제목 스타일 */
+.contact-section .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* 설명 텍스트 */
+.contact-section .section-text {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: var(--color-text);
+}
+
+/* 연락처 정보 박스 */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    background-color: var(--color-background);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(72, 75, 76, 0.1);
+    min-width: 220px;
+}
+
+.contact-item h3 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.contact-item p, .contact-item a {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+/* 폼 스타일 */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: var(--color-text);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+/* 전송 버튼 */
+.submit-button {
+    background-color: var(--color-highlight);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--color-accent);
+}
+
+
 /* ===========================
     FOOTER STYLES
    =========================== */

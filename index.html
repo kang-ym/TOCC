@@ -10,11 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <!-- js -->
     <script src="./src/header-visibility.js" defer></script>
     <script src="./src/about.js" defer></script>
     <script src="./src/worship.js" defer></script>
-
+    <script src="./src/contact-submit.js" defer></script>
 </head>
 <body>
     <header>
@@ -216,11 +218,43 @@
         <p class="section-text">最新のイベント・スケジュール・Googleカレンダー連携などを表示</p>
     </section>
 
-    <!-- contact -->
-    <section id="contact" class="section contact-section">
-        <h2 class="section-title">お問い合わせ</h2>
-        <p class="section-text">電話番号・メール・問い合わせフォームなどを配置予定</p>
-    </section>
+<!-- contact -->
+<section id="contact" class="section contact-section">
+    <h2 class="section-title">お問い合わせ</h2>
+    <p class="section-text">ご質問やご相談がありましたら、お気軽にご連絡ください。</p>
+
+    <div class="contact-info">
+        <div class="contact-item">
+            <h3>電話番号</h3>
+            <p><a href="tel:0312345678">03-1234-5678</a></p>
+        </div>
+        <div class="contact-item">
+            <h3>メール</h3>
+            <p>info@tocc.jp</p>
+        </div>
+        <div class="contact-item">
+            <h3>所在地</h3>
+            <p>東京都板橋区大山○丁目○-○</p>
+            <a href="https://maps.app.goo.gl/nB1f8dEkgVmbN28L6" target="_blank">Googleマップで見る</a>
+        </div>
+    </div>
+
+<!-- 문의 폼 -->
+<form id="contactForm" class="contact-form">
+    <label for="name">お名前</label>
+    <input type="text" id="name" name="name" required placeholder="お名前を入力してください">
+
+    <label for="email">メールアドレス</label>
+    <input type="email" id="email" name="email" required placeholder="メールアドレスを入力してください">
+
+    <label for="message">お問い合わせ内容</label>
+    <textarea id="message" name="message" rows="5" required placeholder="メッセージを入力してください"></textarea>
+
+    <button type="submit" class="submit-button">送信する</button>
+</form>
+
+</section>
+
 
     <!-- footer -->
     <footer class="site-footer">
