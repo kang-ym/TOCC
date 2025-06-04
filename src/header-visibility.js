@@ -4,12 +4,16 @@ const heroSection = document.querySelector("#home");
 const frontLayer = document.querySelector(".layer-front");
 const middleLayer = document.querySelector(".layer-middle");
 const backLayer = document.querySelector(".layer-back");
-const homeSection = document.querySelector("#home"); // ✅ 배경색 기준을 HOME으로 변경
+const homeSection = document.querySelector("#home");
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navBox = document.getElementById('navBox');
 
-let lastScrollY = window.scrollY;
+// ✅ 모바일 여부 확인 함수
+const isMobile = () => window.innerWidth <= 768;
+
 let isHeroVisible = true;
 
-// ✅ IntersectionObserver → home 영역 벗어나면 텍스트 숨김
+// ✅ IntersectionObserver → hero 영역 벗어나면 텍스트 숨김
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
@@ -21,42 +25,43 @@ const observer = new IntersectionObserver(
 );
 observer.observe(heroSection);
 
-// ✅ IntersectionObserver → home 섹션을 기준으로 header 배경색 제어
+// ✅ IntersectionObserver → home 기준으로 header 배경색 제어 (모바일 제외)
 const headerBgObserver = new IntersectionObserver(
     ([entry]) => {
+        if (isMobile()) return; // 모바일에서는 배경색 변경 X
         if (!entry.isIntersecting) {
-            header.classList.add("scrolled");   // ✅ 홈 벗어나면 배경 ON
+            header.classList.add("scrolled");
         } else {
-            header.classList.remove("scrolled"); // ✅ 홈 안에 있으면 배경 OFF
+            header.classList.remove("scrolled");
         }
     },
     { threshold: 0.1 }
 );
 headerBgObserver.observe(homeSection);
 
-// ✅ 스크롤 시 애니메이션 동작 처리
+// ✅ 스크롤 시 헤더 숨김 (모바일 제외)
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const heroTop = heroSection.offsetTop;
     const heroHeight = heroSection.offsetHeight;
-
-    // ✅ 헤더 트리거 기준 (home의 10% 넘으면 hide)
     const headerTriggerY = heroTop + heroHeight * 0.1;
-    if (scrollY > headerTriggerY) {
-        header.classList.remove("show");
-        header.classList.add("hide");
-    } else {
-        header.classList.remove("hide");
-        header.classList.add("show");
+
+    if (!isMobile()) {
+        if (scrollY > headerTriggerY) {
+            header.classList.remove("show");
+            header.classList.add("hide");
+        } else {
+            header.classList.remove("hide");
+            header.classList.add("show");
+        }
     }
 
-    // ✅ scroll range 계산 (5%~55%)
+    // ✅ Hero 텍스트, Layer 애니메이션은 모든 화면에서 작동
     const triggerStart = heroTop + heroHeight * 0.05;
     const triggerEnd = heroTop + heroHeight * 0.55;
     const scrollRange = triggerEnd - triggerStart;
     const inRange = scrollY >= triggerStart && scrollY <= triggerEnd;
 
-    // ✅ .hero-text 이동 및 사라짐
     if (isHeroVisible) {
         const offset = scrollY;
         const maxOffset = 300;
@@ -70,26 +75,16 @@ window.addEventListener("scroll", () => {
         heroText.style.filter = `blur(${fadeRatio * 2}px)`;
     }
 
-    // ✅ layer 이동 애니메이션
     if (inRange) {
         const ratio = (scrollY - triggerStart) / scrollRange;
-
-        // front: 왼쪽으로 이동
         frontLayer.style.transform = `translateX(-${ratio * 300}px)`;
-
-        // middle: 확대 + 약간 위로
         const scale = 1 + ratio * 0.2;
         const middleY = ratio * -30;
         middleLayer.style.transform = `translateY(${middleY}px) scale(${scale})`;
-
-        // back: 아래로 이동 + 흐려짐
-        const backY = ratio * 60;
-        const backOpacity = 1 - ratio * 0.4;
-        backLayer.style.transform = `translateY(${backY}px)`;
-        backLayer.style.opacity = `${backOpacity}`;
+        backLayer.style.transform = `translateY(${ratio * 60}px)`;
+        backLayer.style.opacity = `${1 - ratio * 0.4}`;
     }
 
-    // ✅ 종료 후 고정 위치
     if (scrollY > triggerEnd) {
         frontLayer.style.transform = `translateX(-250px)`;
         middleLayer.style.transform = `translateY(-30px) scale(1.2)`;
@@ -97,7 +92,6 @@ window.addEventListener("scroll", () => {
         backLayer.style.opacity = `0.6`;
     }
 
-    // ✅ 시작 전 초기화
     if (scrollY < triggerStart) {
         frontLayer.style.transform = `translateX(0px)`;
         middleLayer.style.transform = `translateY(0px) scale(1)`;
@@ -106,10 +100,37 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// ✅ 마우스가 화면 위로 올라오면 헤더 다시 보임
+// ✅ 마우스 위로 올리면 헤더 보임 (데스크탑 전용)
 document.body.addEventListener("mousemove", (e) => {
+    if (isMobile()) return;
     if (e.clientY < 80) {
         header.classList.add("show");
         header.classList.remove("hide");
     }
+});
+
+// ✅ 햄버거 버튼 클릭 시 메뉴 열기
+hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('active');
+    navBox.classList.toggle('mobile-nav-open');
+});
+
+// ✅ 모바일에서 메뉴 항목 클릭 시 메뉴 닫기
+const navLinks = document.querySelectorAll('#navBox .nav-menu a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (isMobile()) {
+            navBox.classList.remove('mobile-nav-open');
+            hamburgerBtn.classList.remove('active');
+        }
+    });
+});
+
+// 480px 모바일 전용
+const hamburgerBtnMobile = document.getElementById('hamburgerBtnMobile');
+
+hamburgerBtnMobile.addEventListener('click', () => {
+    navBox.classList.toggle('mobile-nav-open');
+    hamburgerBtnMobile.classList.toggle('active');
 });

@@ -165,6 +165,61 @@ header.scrolled {
 
 }
 
+/* hamburger btn */
+.hamburger-button {
+    display: none;
+    width: 20px;
+    height: 32px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-button span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: var(--color-text);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+/* 지그재그 형태 */
+.hamburger-button span:nth-child(1) {
+    transform: translateX(-6px);
+}
+.hamburger-button span:nth-child(2) {
+    transform: translateX(3px);
+}
+.hamburger-button span:nth-child(3) {
+    transform: translateX(-4px);
+}
+
+/* 활성화 시 ▶ 모양으로 */
+.hamburger-button.active span:nth-child(1) {
+    transform: rotate(45deg) translate(.9px, 6px); /* ↗ */
+    width: 14px;
+}
+
+.hamburger-button.active span:nth-child(2) {
+    width: 16px;
+    transform: translateX(-11.5px);
+}
+
+.hamburger-button.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(.9px, -6px); /* ↘ */
+    width: 14px;
+}
+
+
+/* 기본 숨김 처리 480px 모바일 전용*/ 
+#hamburgerBtnMobile {
+    display: none;
+}
 
 /* ===========================
     HERO SECTION
@@ -909,4 +964,281 @@ header.scrolled {
     padding: 40px 20px;
     text-align: center;
     font-size: 0.9rem;
+}
+
+
+
+/* ===========================
+    MEDIA QUERIES
+   =========================== */
+
+/* 태블릿 이하 (768px 이하) *//* 태블릿 이하에서 적용 */
+@media (max-width: 768px) {
+    /* header */
+    header{
+        height: 50px;
+    }
+    .hamburger-button{
+        display: flex;
+    }
+    nav{
+        position: fixed;
+        top: 1rem;
+        right: 0;
+        display: flex;
+        gap: 10px;
+        transform: translateX(115px);
+        transition: all .3s ease-in-out;
+    }
+    .mobile-nav-open{
+        transform: translateX(0);
+    }
+    .nav-menu {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .logo{
+        font-size: 2rem;
+        >span{
+            font-size: .8rem;
+            font-weight: 400;
+        }
+    }
+    /* home */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    /* common */
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    /* about */
+    .tab-content-container {
+        width: 90%;
+    }
+
+    /* worship */
+
+    .worship-grid {
+        display: block;
+    }
+
+    .schedule {
+        margin-bottom: 20px;
+    }
+
+    .description {
+        min-height: 200px;
+    }
+
+    .desc-text {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .worship-schedule li {
+        padding: 14px 16px;
+        border: 1px solid var(--color-highlight);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        background-color: var(--color-surface);
+    }
+
+    .worship-schedule li.active {
+        background-color: var(--color-highlight);
+        color: white;
+        font-weight: bold;
+    }
+
+    /* 예배 아코디언 설명 */
+.worship-schedule .desc {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.worship-schedule li.active .desc {
+    max-height: 200px;  /* 필요한 설명 길이에 맞게 조절 */
+    padding-top: 8px;
+}
+
+/* 선택된 예배 강조 */
+.worship-schedule li.active {
+    background-color: var(--color-highlight);
+    font-weight: bold;
+    border-color: var(--color-accent);
+}
+
+
+    /* news */
+    .news-grid {
+        flex-direction: column;
+    }
+
+
+}
+
+
+/* ===========================
+    모바일 (480px 이하)
+    스마트폰 화면 대응 스타일
+   =========================== */
+@media (max-width: 480px) {
+    .section{
+        padding: 60px 20px;
+    }
+    /* header */
+
+
+    #hamburgerBtn {
+        display: none; /* 기존 햄버거 숨김 */
+    }
+
+    #hamburgerBtnMobile {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 12px;
+        right: 16px;
+        width: 40px;
+        background-color: var(--color-background);
+        border-radius: 8px;
+        padding: 6px;
+        z-index: 1101;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    #hamburgerBtnMobile span {
+        width: 20px;
+        height: 3px;
+        background-color: var(--color-text);
+        border-radius: 2px;
+        transition: all .3s ease;
+
+    }
+
+    #hamburgerBtnMobile.active span:nth-child(1){
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+    #hamburgerBtnMobile.active span:nth-child(2){
+        opacity: 0;
+    }
+    #hamburgerBtnMobile.active span:nth-child(3){
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 80%;
+        max-width: 280px;
+        background-color: #DCE4DF77;
+        backdrop-filter: blur(10px);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1100;
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.15);
+        padding: 80px 24px 20px;
+    }
+
+    nav.mobile-nav-open {
+        transform: translateX(0);
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        font-size: 1.1rem;
+    }
+
+    /* 오버레이 추가 (선택사항) */
+    .nav-overlay {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        display: none;
+    }
+
+    body.nav-open .nav-overlay {
+        display: block;
+    }
+    .logo{
+        font-size: 1.4rem;
+        >span{
+            font-size: .6rem;
+        }
+    }
+
+
+    /* HERO 섹션 */
+    .hero-title {
+        font-size: 2rem; /* 타이틀 축소 */
+    }
+
+    .hero-subtitle {
+        font-size: 1rem; /* 부제목 축소 */
+    }
+    .church-name{
+        font-size: 1.6rem;
+    }
+
+    /* ABOUT*/
+    .story-tabs {
+        gap: 15px;
+    }
+    .tab-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    .tab-content{
+        font-size: .9rem;
+    }
+    .keywords-title {
+        font-size: 1.6rem;
+    }
+    .keywords {
+        gap: 15px;
+    }
+    .keywords span{
+        padding: 8px 16px;
+    }
+    /* worship */
+    .section-subdesc{
+        font-size: 1rem;
+    }
+    /* CONTACT 폼 레이아웃 */
+    .contact-form {
+        padding: 0 10px; /* 양옆 여백 확보 */
+    }
+    .contact-item{
+        padding: 16px;
+    }
+    .submit-button {
+        width: 100%; /* 버튼 가로 전체 확장 */
+    }
 }

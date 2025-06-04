@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- EmailJS SDK -->
@@ -23,7 +25,20 @@
 <body>
     <header class="show">
         <div class="logo">TOCC <span>東京大山キリスト教会</span></div>
-        <nav>
+
+            <!-- 스마트폰 전용 햄버거 (480px 이하 전용) -->
+    <div class="hamburger-button-mobile-only" id="hamburgerBtnMobile">
+        <span></span><span></span><span></span>
+    </div>
+
+        <nav id="navBox">
+            <!-- 기존 햄버거 (768px 이하용) -->
+            <div class="hamburger-button" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home">HOME</a></li>
                 <li class="nav-item"><a href="#about">紹介</a></li>
