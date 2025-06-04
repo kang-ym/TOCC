@@ -45,8 +45,8 @@ window.addEventListener("scroll", () => {
     // ✅ .hero-text 이동 + 사라지는 효과
     if (isHeroVisible) {
         const offset = scrollY;
-        const maxOffset = 200;
-        const translateY = Math.min(offset * 0.7, maxOffset);
+        const maxOffset = 300;
+        const translateY = Math.min(offset * 0.9, maxOffset);
         heroText.style.transform = `translateY(${translateY}px)`;
 
         // 다음 섹션과 겹치기 전 자연스럽게 사라짐
