@@ -488,12 +488,24 @@ header.show {
     pointer-events: all;
 }
 
+.tab-content-container::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    margin: 40px auto 0;
+    background-color: var(--color-accent);
+    border-radius: 999px;
+}
 
 
 /* 키워드 강조 영역 */
 .keywords-section {
     margin-top: 60px;
 }
+
+
+
 
 .keywords-title {
     font-family: var(--font-title);
