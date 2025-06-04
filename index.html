@@ -17,6 +17,8 @@
     <script src="./src/about.js" defer></script>
     <script src="./src/worship.js" defer></script>
     <script src="./src/contact-submit.js" defer></script>
+    <script src="./src/scroll-anim.js" defer></script>
+
 </head>
 <body>
     <header>
@@ -96,7 +98,7 @@
 
     <!-- slogan -->
     <section class="section slogan-section">
-        <div class="slogan-container">
+        <div class="slogan-container scroll-fade">
             <h2 class="church-name">東京大山キリスト教会</h2>
             <blockquote class="slogan-text">
                 <p>あなたの天幕に場所を広く取り、あなたの住まいの幕を広げ、<br>
@@ -115,17 +117,17 @@
 
 <!-- about -->
 <section id="about" class="section about-section">
-    <h2 class="section-title">教会のビジョンとご挨拶</h2>
+    <h2 class="section-title reveal-once">教会のビジョンとご挨拶</h2>
 
     <!-- 스토리 탭 -->
-    <div class="story-tabs">
+    <div class="story-tabs reveal-once">
         <button class="tab-button active" data-tab="start">はじまり</button>
         <button class="tab-button" data-tab="now">今の私たち</button>
         <button class="tab-button" data-tab="vision">これからのビジョン</button>
     </div>
 
     <!-- 공통 콘텐츠 영역 -->
-    <div class="tab-content-container">
+    <div class="tab-content-container reveal-once">
         <div class="tab-content show" data-tab="start">
             <p>東京大山キリスト教会は、小さな家庭集会から始まりました。神様の導きの中で、少しずつ信仰の仲間が増え、地域に根差した教会として成長してきました。</p>
         </div>
@@ -138,7 +140,7 @@
     </div>
 
     <!-- 키워드 강조 -->
-    <div class="keywords-section">
+    <div class="keywords-section reveal-once">
         <h2 class="keywords-title">キーワードで見るTOCC</h2>
         <div class="keywords">
             <span data-description="神様との出会いとつながりを深める時間です。" class="keyword-active">礼拝</span>
@@ -153,10 +155,10 @@
 
 <!-- worship -->
 <section id="worship" class="section worship-section">
-    <h2 class="section-title">礼拝時間のご案内</h2>
-    <p class="section-subdesc">各礼拝にマウスを乗せて詳細をご覧ください。</p>
+    <h2 class="section-title reveal-once">礼拝時間のご案内</h2>
+    <p class="section-subdesc reveal-once">各礼拝にマウスを乗せて詳細をご覧ください。</p>
 
-    <div class="worship-grid">
+    <div class="worship-grid reveal-once">
         <!-- 왼쪽 예배 리스트 -->
         <div class="schedule">
             <ul class="worship-schedule">
@@ -214,9 +216,9 @@
 
 <!-- news -->
 <section id="news" class="section news-section">
-    <h2 class="section-title">お知らせ</h2>
+    <h2 class="section-title reveal-once">お知らせ</h2>
 
-    <div class="news-grid">
+    <div class="news-grid reveal-once">
         <!-- 왼쪽: 캘린더 -->
         <div class="news-calendar">
             <div class="calendar-box">
@@ -253,7 +255,7 @@
 
 
 <!-- contact -->
-<section id="contact" class="section contact-section">
+<section id="contact" class="section contact-section reveal-once">
     <h2 class="section-title">お問い合わせ</h2>
     <p class="section-text">ご質問やご相談がありましたら、お気軽にご連絡ください。</p>
 
