@@ -1,19 +1,19 @@
+'use strict';
+
 const header = document.querySelector("header");
 const heroText = document.querySelector(".hero-text");
 const heroSection = document.querySelector("#home");
 const frontLayer = document.querySelector(".layer-front");
 const middleLayer = document.querySelector(".layer-middle");
 const backLayer = document.querySelector(".layer-back");
-const homeSection = document.querySelector("#home");
-const hamburgerBtn = document.getElementById('hamburgerBtn');
 const navBox = document.getElementById('navBox');
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const hamburgerBtnMobile = document.getElementById('hamburgerBtnMobile');
 
-// ✅ 모바일 여부 확인 함수
-const isMobile = () => window.innerWidth <= 768;
-
+const isMobile = () => window.innerWidth <= 767;
 let isHeroVisible = true;
 
-// ✅ IntersectionObserver → hero 영역 벗어나면 텍스트 숨김
+// ✅ hero 영역 기준 텍스트 표시/숨김
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
@@ -25,10 +25,10 @@ const observer = new IntersectionObserver(
 );
 observer.observe(heroSection);
 
-// ✅ IntersectionObserver → home 기준으로 header 배경색 제어 (모바일 제외)
+// ✅ hero 영역 기준 헤더 배경색 (모바일 제외)
 const headerBgObserver = new IntersectionObserver(
     ([entry]) => {
-        if (isMobile()) return; // 모바일에서는 배경색 변경 X
+        if (isMobile()) return;
         if (!entry.isIntersecting) {
             header.classList.add("scrolled");
         } else {
@@ -37,17 +37,15 @@ const headerBgObserver = new IntersectionObserver(
     },
     { threshold: 0.1 }
 );
-headerBgObserver.observe(homeSection);
+headerBgObserver.observe(heroSection);
 
-// ✅ 스크롤 시 헤더 숨김 (모바일 제외)
+// ✅ 스크롤 시 헤더 숨김/표시 (모바일 제외)
+let lastScrollY = window.scrollY;
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
-    const heroTop = heroSection.offsetTop;
-    const heroHeight = heroSection.offsetHeight;
-    const headerTriggerY = heroTop + heroHeight * 0.1;
 
     if (!isMobile()) {
-        if (scrollY > headerTriggerY) {
+        if (scrollY > lastScrollY && scrollY > 100) {
             header.classList.remove("show");
             header.classList.add("hide");
         } else {
@@ -56,7 +54,11 @@ window.addEventListener("scroll", () => {
         }
     }
 
-    // ✅ Hero 텍스트, Layer 애니메이션은 모든 화면에서 작동
+    lastScrollY = scrollY;
+
+    // ✅ Hero 애니메이션 (모든 해상도 공통)
+    const heroTop = heroSection.offsetTop;
+    const heroHeight = heroSection.offsetHeight;
     const triggerStart = heroTop + heroHeight * 0.05;
     const triggerEnd = heroTop + heroHeight * 0.55;
     const scrollRange = triggerEnd - triggerStart;
@@ -76,11 +78,10 @@ window.addEventListener("scroll", () => {
     }
 
     if (inRange) {
+        // console.log("🟢 Hero 애니메이션 활성화");
         const ratio = (scrollY - triggerStart) / scrollRange;
         frontLayer.style.transform = `translateX(-${ratio * 300}px)`;
-        const scale = 1 + ratio * 0.2;
-        const middleY = ratio * -30;
-        middleLayer.style.transform = `translateY(${middleY}px) scale(${scale})`;
+        middleLayer.style.transform = `translateY(${-ratio * 30}px) scale(${1 + ratio * 0.2})`;
         backLayer.style.transform = `translateY(${ratio * 60}px)`;
         backLayer.style.opacity = `${1 - ratio * 0.4}`;
     }
@@ -100,7 +101,7 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// ✅ 마우스 위로 올리면 헤더 보임 (데스크탑 전용)
+// ✅ 마우스가 위로 올라오면 헤더 표시 (데스크탑만)
 document.body.addEventListener("mousemove", (e) => {
     if (isMobile()) return;
     if (e.clientY < 80) {
@@ -109,28 +110,30 @@ document.body.addEventListener("mousemove", (e) => {
     }
 });
 
-// ✅ 햄버거 버튼 클릭 시 메뉴 열기
-hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('active');
-    navBox.classList.toggle('mobile-nav-open');
-});
+// ✅ 햄버거 버튼 (768 이하 nav 안)
+if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        navBox.classList.toggle('mobile-nav-open');
+    });
+}
 
-// ✅ 모바일에서 메뉴 항목 클릭 시 메뉴 닫기
+// ✅ 햄버거 버튼 (480 이하 nav 밖)
+if (hamburgerBtnMobile) {
+    hamburgerBtnMobile.addEventListener('click', () => {
+        hamburgerBtnMobile.classList.toggle('active');
+        navBox.classList.toggle('mobile-nav-open');
+    });
+}
+
+// ✅ 모바일 a 태그 클릭 시 메뉴 닫기 + 버튼 상태 초기화
 const navLinks = document.querySelectorAll('#navBox .nav-menu a');
-
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         if (isMobile()) {
             navBox.classList.remove('mobile-nav-open');
-            hamburgerBtn.classList.remove('active');
+            if (hamburgerBtnMobile) hamburgerBtnMobile.classList.remove('active');
+            if (hamburgerBtn) hamburgerBtn.classList.remove('active');
         }
     });
-});
-
-// 480px 모바일 전용
-const hamburgerBtnMobile = document.getElementById('hamburgerBtnMobile');
-
-hamburgerBtnMobile.addEventListener('click', () => {
-    navBox.classList.toggle('mobile-nav-open');
-    hamburgerBtnMobile.classList.toggle('active');
 });

@@ -1,3 +1,12 @@
+/*
+Theme Name: TOCC Church Theme
+Author: ymin
+Version: 1.0
+*/
+
+
+
+
 /* ===========================
     ROOT VARIABLES
    =========================== */
@@ -101,6 +110,7 @@ body {
     background-color: var(--color-background);
     color: var(--color-text);
 }
+
 
 /* ===========================
     HEADER STYLES
@@ -427,6 +437,8 @@ header.scrolled {
     font-size: 1.2rem;
     color: var(--color-text);
 }
+
+
 
 
 
@@ -974,6 +986,54 @@ header.scrolled {
 
 /* 태블릿 이하 (768px 이하) *//* 태블릿 이하에서 적용 */
 @media (max-width: 768px) {
+        /* ✅ 전체 페이지 수평 스크롤 방지 */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+
+        .layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+            will-change: transform, filter, opacity;
+        }
+        .hero-text {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, 40px);
+            transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+            z-index: 10;
+            text-align: center;
+            will-change: transform;
+        }
+    
+        .layer-front,
+        .layer-middle,
+        .layer-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+            will-change: transform, filter, opacity;
+        }
+        
+        .layer-front {
+            transform: translateX(0); /* ✅ 초기화 */
+        }
+    
+        .layer-middle {
+            transform: translateY(0) scale(1); /* ✅ 초기화 */
+        }
+    
+        .layer-back {
+            transform: translateY(0); /* ✅ 초기화 */
+            opacity: 1;
+        }
     /* header */
     header{
         height: 50px;
@@ -982,6 +1042,7 @@ header.scrolled {
         display: flex;
     }
     nav{
+        overflow-x: hidden;
         position: fixed;
         top: 1rem;
         right: 0;
@@ -1102,6 +1163,8 @@ header.scrolled {
     스마트폰 화면 대응 스타일
    =========================== */
 @media (max-width: 480px) {
+    /* common */
+
     .section{
         padding: 60px 20px;
     }
