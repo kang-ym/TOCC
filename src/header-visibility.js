@@ -56,48 +56,42 @@ window.addEventListener("scroll", () => {
 
     lastScrollY = scrollY;
 
-    // ✅ Hero 애니메이션 (모든 해상도 공통)
+    // ✅ Hero 애니메이션
     const heroTop = heroSection.offsetTop;
     const heroHeight = heroSection.offsetHeight;
-    const triggerStart = heroTop + heroHeight * 0.05;
-    const triggerEnd = heroTop + heroHeight * 0.55;
+
+    let triggerStart, triggerEnd;
+    if (isMobile()) {
+        triggerStart = 0;
+        triggerEnd = 150;
+    } else {
+        triggerStart = heroTop + heroHeight * 0.05;
+        triggerEnd = heroTop + heroHeight * 0.55;
+    }
+
     const scrollRange = triggerEnd - triggerStart;
     const inRange = scrollY >= triggerStart && scrollY <= triggerEnd;
 
-    if (isHeroVisible) {
-        const offset = scrollY;
-        const maxOffset = 300;
-        const translateY = Math.min(offset * 0.9, maxOffset);
-        heroText.style.transform = `translateY(${translateY}px)`;
+    const offset = scrollY;
+    const maxOffset = 300;
+    const translateY = Math.min(offset * 0.8, maxOffset);
+    heroText.style.transform = `translateY(${translateY}px)`;
 
-        const fadeOutStart = triggerEnd - 350;
-        const fadeRatio = Math.min(Math.max((scrollY - fadeOutStart) / 250, 0), 1);
-        heroText.style.zIndex = fadeRatio > 0.5 ? "0" : "10";
-        heroText.style.opacity = `${1 - fadeRatio}`;
-        heroText.style.filter = `blur(${fadeRatio * 2}px)`;
-    }
+    const fadeOutStart = triggerEnd - 200;
+    const fadeRatio = Math.min(Math.max((scrollY - fadeOutStart) / 200, 0), 1);
+    heroText.style.zIndex = fadeRatio > 0.5 ? "0" : "10";
+    heroText.style.opacity = `${1 - fadeRatio}`;
+    heroText.style.filter = `blur(${fadeRatio * 2}px)`;
 
-    if (inRange) {
-        // console.log("🟢 Hero 애니메이션 활성화");
-        const ratio = (scrollY - triggerStart) / scrollRange;
+    if (inRange || isMobile()) {
+        const ratio = isMobile()
+            ? Math.min(scrollY / scrollRange, 1)
+            : (scrollY - triggerStart) / scrollRange;
+
         frontLayer.style.transform = `translateX(-${ratio * 300}px)`;
         middleLayer.style.transform = `translateY(${-ratio * 30}px) scale(${1 + ratio * 0.2})`;
         backLayer.style.transform = `translateY(${ratio * 60}px)`;
         backLayer.style.opacity = `${1 - ratio * 0.4}`;
-    }
-
-    if (scrollY > triggerEnd) {
-        frontLayer.style.transform = `translateX(-250px)`;
-        middleLayer.style.transform = `translateY(-30px) scale(1.2)`;
-        backLayer.style.transform = `translateY(60px)`;
-        backLayer.style.opacity = `0.6`;
-    }
-
-    if (scrollY < triggerStart) {
-        frontLayer.style.transform = `translateX(0px)`;
-        middleLayer.style.transform = `translateY(0px) scale(1)`;
-        backLayer.style.transform = `translateY(0px)`;
-        backLayer.style.opacity = `1`;
     }
 });
 

@@ -1,3 +1,5 @@
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
     const worshipItems = document.querySelectorAll('.worship-schedule li');
     const descBox = document.getElementById('descText');
@@ -5,16 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
 
     let currentSlide = 0;
-    let sliderInterval = null;
+    let sliderInterval;
 
-    // ✅ 모바일 여부 함수 (한 번만 정의)
-    function isMobile() {
-        return window.innerWidth <= 768;
-    }
+    const isMobile = window.innerWidth <= 767;
 
-    // ✅ 슬라이더 실행 (PC 전용)
     function startSlider() {
-        if (isMobile()) return;
         sliderInterval = setInterval(() => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
@@ -26,44 +23,66 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(sliderInterval);
     }
 
-    // ✅ 이벤트 등록
-    worshipItems.forEach((item) => {
-        const desc = item.querySelector('.desc');
-        const descText = desc?.textContent || '';
+    function showDesc(text) {
+        descBox.textContent = text;
+        descBox.classList.add('visible');
+        slider.classList.add('hidden');
+    }
 
-        // ✅ PC: hover → 설명 텍스트 표시
-        item.addEventListener('mouseenter', () => {
-            if (isMobile()) return;
-            descBox.textContent = descText;
-            slider.classList.add('hidden');
-            descBox.classList.add('visible');
-            stopSlider();
+    function hideDesc() {
+        descBox.textContent = '';
+        descBox.classList.remove('visible');
+        slider.classList.remove('hidden');
+    }
+
+    if (!isMobile) {
+        // ✅ PC용: Hover 시 설명
+        worshipItems.forEach(item => {
+            const desc = item.querySelector('.desc')?.textContent || '';
+
+            item.addEventListener('mouseenter', () => {
+                showDesc(desc);
+                stopSlider();
+            });
+
+            item.addEventListener('mouseleave', () => {
+                hideDesc();
+                startSlider();
+            });
         });
 
-        item.addEventListener('mouseleave', () => {
-            if (isMobile()) return;
-            descBox.textContent = '';
-            slider.classList.remove('hidden');
-            descBox.classList.remove('visible');
-            startSlider();
+        startSlider();
+    } else {
+        // ✅ 모바일용: 아코디언 효과 (자연스러운 transition)
+        worshipItems.forEach(item => {
+            const desc = item.querySelector('.desc');
+
+            item.addEventListener('click', () => {
+                const isOpen = item.classList.contains('active');
+
+                // 다른 아이템 모두 닫기
+                worshipItems.forEach(el => {
+                    el.classList.remove('active');
+                    const elDesc = el.querySelector('.desc');
+                    elDesc.style.maxHeight = null;
+                    elDesc.style.paddingTop = '0';
+                    elDesc.style.paddingBottom = '0';
+                });
+
+                if (!isOpen) {
+                    item.classList.add('active');
+                    const padding = 16;
+                    desc.style.maxHeight = (desc.scrollHeight + padding) + 'px';
+                    desc.style.paddingTop = '8px';
+                    desc.style.paddingBottom = '8px';
+                }
+            });
         });
 
-        // ✅ 모바일: 클릭 → 아코디언 열기
-        item.addEventListener('click', () => {
-            if (!isMobile()) return;
-
-            const isActive = item.classList.contains('active');
-
-            // 모든 항목 닫기
-            worshipItems.forEach((el) => el.classList.remove('active'));
-
-            // 본인이 닫힌 상태였다면 다시 열기
-            if (!isActive) {
-                item.classList.add('active');
-            }
+        // ✅ 모바일: 진입 시 랜덤 이미지 보여주기
+        const randomIndex = Math.floor(Math.random() * slides.length);
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === randomIndex);
         });
-    });
-
-    // ✅ 초기 슬라이더 시작 (PC만)
-    startSlider();
+    }
 });
