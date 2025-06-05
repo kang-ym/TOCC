@@ -1261,11 +1261,11 @@ header.scrolled {
 
     /* HERO 섹션 */
     .hero-title {
-        font-size: 2rem; /* 타이틀 축소 */
+        font-size: 1.6rem; /* 타이틀 축소 */
     }
 
     .hero-subtitle {
-        font-size: 1rem; /* 부제목 축소 */
+        font-size: .8rem; /* 부제목 축소 */
     }
     .church-name{
         font-size: 1.6rem;
