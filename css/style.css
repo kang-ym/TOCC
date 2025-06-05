@@ -4,7 +4,16 @@ Author: ymin
 Version: 1.0
 */
 
-
+/* wp- admin- bar */
+body.admin-bar header {
+    top: 32px; /* admin bar 높이만큼 내려줌 */
+}
+/* 모바일 (768px 이하) */
+@media screen and (max-width: 782px) {
+    body.admin-bar header {
+        top: 46px;
+    }
+}
 
 
 /* ===========================
@@ -210,18 +219,19 @@ header.scrolled {
 }
 
 /* 활성화 시 ▶ 모양으로 */
+
 .hamburger-button.active span:nth-child(1) {
-    transform: rotate(45deg) translate(.9px, 6px); /* ↗ */
+    transform: rotate(45deg) translate(10px, -5px); /* ↗ */
     width: 14px;
 }
 
 .hamburger-button.active span:nth-child(2) {
     width: 16px;
-    transform: translateX(-11.5px);
+    transform: translateX(4px);
 }
 
 .hamburger-button.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(.9px, -6px); /* ↘ */
+    transform: rotate(-45deg) translate(10px, 5px); /* ↘ */
     width: 14px;
 }
 
@@ -1040,7 +1050,13 @@ header.scrolled {
         height: 50px;
     }
     .hamburger-button{
+        border-radius: 8px;
         display: flex;
+        position: fixed;
+        width: 26px;
+        top: .8rem;
+        right: 1.2rem;
+        z-index: 1100;
     }
     nav{
         overflow-x: hidden;
@@ -1049,9 +1065,21 @@ header.scrolled {
         right: 0;
         display: flex;
         gap: 10px;
-        transform: translateX(115px);
+        transform: translateX(100%);
+        overflow-x: hidden;
+        overflow-y: auto;
         transition: all .3s ease-in-out;
+
+        
+        -webkit-overflow-scrolling: touch; /* iOS 스크롤 튐 방지 */
+        overscroll-behavior: contain; /* ✅ 스크롤 전파 차단 */
+        touch-action: auto;
     }
+    
+    nav::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+    }
+
     .mobile-nav-open{
         transform: translateX(0);
     }

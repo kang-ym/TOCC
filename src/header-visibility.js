@@ -75,6 +75,7 @@ window.addEventListener("scroll", () => {
     const offset = scrollY;
     const maxOffset = 300;
     const translateY = Math.min(offset * 0.8, maxOffset);
+    if (!isHeroVisible || isMobile()) return;
     heroText.style.transform = `translateY(${translateY}px)`;
 
     const fadeOutStart = triggerEnd - 200;
