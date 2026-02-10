@@ -235,7 +235,7 @@
         <div class="description">
             <div class="worship-description">
                 <div class="image-slider" id="imageSlider">
-                    <img src="./img/worship1.webp" class="slide active">
+                    <img src="./img/church.png" class="slide active">
                     <img src="./img/worship2.webp" class="slide">
                     <img src="./img/worship3.webp" class="slide">
                     <img src="./img/worship4.webp" class="slide">
@@ -244,7 +244,7 @@
             </div>
         </div>
 
-        <!-- 교통 정보 -->
+        <!-- 교통 정보 --> 
         <div class="map-info">
             <h3 class="map-title" style="font-size: 24px;">東京大山キリスト教会<br>
                 ⛪ 東京都板橋区板橋1-40-3 </h3>
@@ -355,6 +355,18 @@
     <footer class="site-footer">
         &copy; 2025 Tokyo Oyama Christ Church - All rights reserved.
     </footer>
+    <!-- image lightbox modal -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox__backdrop" data-lightbox-close></div>
+        <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+            <button class="lightbox__close" type="button" aria-label="Close" data-lightbox-close>×</button>
+            <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous image" id="lightboxPrev">‹</button>
+            <figure class="lightbox__figure">
+                <img class="lightbox__img" id="lightboxImg" alt="">
+            </figure>
+            <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next image" id="lightboxNext">›</button>
+        </div>
+    </div>
 </body>
 
 </html>
