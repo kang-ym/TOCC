@@ -992,6 +992,35 @@ header.scrolled {
 
 
 
+
+/* =============================
+   Church disclaimer (contact/map card text)
+   - Use on the small note text block to prevent overflow on mobile
+============================= */
+.church-disclaimer {
+    font-size: 13px;
+    max-width: 350px;
+    width: 100%;
+    margin: 20px auto 0;
+    /* padding: 0 14px; */
+    box-sizing: border-box;
+}
+
+.church-disclaimer p {
+    margin: 0;
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+    .church-disclaimer {
+        max-width: 100%;
+        padding: 0 16px;
+        font-size: 12px;
+    }
+}
+
 /* =============================
    Lightbox (image modal)
 ============================= */
