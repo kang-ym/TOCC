@@ -74,11 +74,15 @@
         <nav id="navBox">
     
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#home">HOME</a></li>
+                <li class="nav-item"><a href="#home" data-i18n="nav.home">HOME</a></li>
                 <!-- <li class="nav-item"><a href="#about">紹介</a></li> -->
-                <li class="nav-item"><a href="#worship">礼拝案内</a></li>
+                <li class="nav-item"><a href="#worship" data-i18n="nav.worship">礼拝案内</a></li>
                 <!-- <li class="nav-item"><a href="#news">お知らせ</a></li> -->
                 <!-- <li class="nav-item"><a href="#contact">お問い合わせ</a></li> -->
+                <div class="lang-switcher" aria-label="Language switcher">
+                    <button type="button" data-lang-button="ja" onclick="setLanguage('ja', true)">日本語</button>
+                    <button type="button" data-lang-button="en" onclick="setLanguage('en', true)">English</button>
+                </div>
             </ul>
         </nav>
     </header>
@@ -140,21 +144,19 @@
             <img src="./img/hero1.png" alt="Front Tree" class="layer layer-front">
         </div>
         <div class="hero-text">
-            <h1 class="hero-title">Tokyo Oyama Christ Church</h1>
-            <p class="hero-subtitle">神は愛です (God is love)</p>
+            <h1 class="hero-title" data-i18n="hero.title">Tokyo Oyama Christ Church</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">神は愛です (God is love)</p>
         </div>
     </section>
 
     <!-- slogan -->
     <section class="section slogan-section">
         <div class="slogan-container scroll-fade">
-            <h2 class="church-name">東京大山キリスト教会</h2>
+            <h2 class="church-name" data-i18n="slogan.churchName">東京大山キリスト教会</h2>
             <blockquote class="slogan-text">
-                <p>あなたの天幕に場所を広く取り、あなたの住まいの幕を広げ、<br>
-                惜しまず綱を伸ばし、杭を堅く打て。</p>
-                <p>あなたは右に左に増え広がり、あなたの子孫は諸国の民の土地を継ぎ、<br>
-                荒れ果てた町々には再び人が住む。</p>
-                <footer>— イザヤ書 54:2-3</footer>
+                <p data-i18n-html="slogan.line1">あなたの天幕に場所を広く取り、あなたの住まいの幕を広げ、<br>惜しまず綱を伸ばし、杭を堅く打て。</p>
+                <p data-i18n-html="slogan.line2">あなたは右に左に増え広がり、あなたの子孫は諸国の民の土地を継ぎ、<br>荒れ果てた町々には再び人が住む。</p>
+                <footer data-i18n="slogan.footer">— イザヤ書 54:2-3</footer>
             </blockquote>
             <div class="slogan-img-box">
                 <img src="./img/leaf1.png" alt="">
@@ -204,7 +206,7 @@
 
 <!-- worship -->
 <section id="worship" class="section worship-section">
-    <h2 class="section-title reveal-once" style="margin-bottom: 30px;">礼拝時間のご案内</h2>
+    <h2 class="section-title reveal-once" style="margin-bottom: 30px;" data-i18n="worship.sectionTitle">礼拝時間のご案内</h2>
     <!-- <p class="section-subdesc reveal-once">各礼拝にマウスを乗せて詳細をご覧ください。</p> -->
 
     <div class="worship-grid reveal-once">
@@ -212,23 +214,23 @@
         <div class="schedule">
             <ul class="worship-schedule">
                 <li>
-                    <div class="title"><strong>🌅 早天礼拝（月~金曜日）：</strong> 毎朝 5:50</div>
-                    <div class="desc">一日の始まりを神様との時間で始めましょう。</div>
+                    <div class="title"><strong data-i18n="worship.item1.title">🌅 早天礼拝（月~金曜日）：</strong> <span data-i18n="worship.item1.time">毎朝 5:50</span></div>
+                    <div class="desc" data-i18n="worship.item1.desc">一日の始まりを神様との時間で始めましょう。</div>
                 </li>
                 <li>
-                    <div class="title"><strong>🌙 金曜徹夜礼拝：</strong> 毎週金曜 21:00</div>
-                    <div class="desc">深い祈りで心を癒し、神様の声に耳を傾けましょう。</div>
+                    <div class="title"><strong data-i18n="worship.item2.title">🌙 金曜徹夜礼拝：</strong> <span data-i18n="worship.item2.time">毎週金曜 21:00</span></div>
+                    <div class="desc" data-i18n="worship.item2.desc">深い祈りで心を癒し、神様の声に耳を傾けましょう。</div>
                 </li>
                 <li>
-                    <div class="title"><strong>🇯🇵 主日礼拝（日本語）：</strong> 日曜 10:00</div>
-                    <div class="desc">地域の方々ともに礼拝を捧げます。</div>
+                    <div class="title"><strong data-i18n="worship.item3.title">🇯🇵 主日礼拝（日本語）：</strong> <span data-i18n="worship.item3.time">日曜 10:00</span></div>
+                    <div class="desc" data-i18n="worship.item3.desc">地域の方々ともに礼拝を捧げます。</div>
                 </li>
                 <li>
-                    <div class="title"><strong>🇰🇷 主日礼拝（韓国語）：</strong> 日曜 14:00</div>
-                    <div class="desc">韓国語で心を込めて賛美し、御言葉に耳を傾けます。</div>
+                    <div class="title"><strong data-i18n="worship.item4.title">🇰🇷 主日礼拝（韓国語）：</strong> <span data-i18n="worship.item4.time">日曜 14:00</span></div>
+                    <div class="desc" data-i18n="worship.item4.desc">韓国語で心を込めて賛美し、御言葉に耳を傾けます。</div>
                 </li>
             </ul>
-            <span>韓国語、英語通訳あります。</span>
+            <span data-i18n="worship.interpretation">韓国語、英語通訳あります。</span>
         </div>
 
         <!-- 오른쪽 이미지/설명 영역 -->
@@ -246,21 +248,18 @@
 
         <!-- 교통 정보 --> 
         <div class="map-info">
-            <h3 class="map-title" style="font-size: 24px;">東京大山キリスト教会<br>
-                ⛪ 東京都板橋区板橋1-40-3 </h3>
+            <h3 class="map-title" style="font-size: 24px;" data-i18n-html="map.title">東京大山キリスト教会<br>⛪ 東京都板橋区板橋1-40-3</h3>
             <ul class="access-list" style="font-size:18px; margin-bottom: 20px;">
-                <li>🚶‍♂️ 下板橋駅（東武東上線）より徒歩5分</li>
-                <li>🚶‍♀️ 板橋駅（JR埼京線）より徒歩8分</li>
-                <li>🚶‍♂️ 新板橋駅（三田線）より徒歩8分</li>
+                <li data-i18n="map.access1">🚶‍♂️ 下板橋駅（東武東上線）より徒歩5分</li>
+                <li data-i18n="map.access2">🚶‍♀️ 板橋駅（JR埼京線）より徒歩8分</li>
+                <li data-i18n="map.access3">🚶‍♂️ 新板橋駅（三田線）より徒歩8分</li>
             </ul>
             <div style="font-size: 18px; text-align: left; width: 300px; margin: 0 auto;">
                 <p><strong>TEL：</strong>03-6905-7782</p>
                 <p><strong>MAIL：</strong>oyamachurch@gmail.com</p>
             </div>
             <div class="church-disclaimer" >
-                <p>わたしたちの教会は伝統的なプロテスタントの教会です。<br>
-                    モルモン教、統一教会、エホバの証人、オウム真理教などとは一切関係ありません。
-                </p>
+                <p data-i18n-html="map.disclaimer">わたしたちの教会は伝統的なプロテスタントの教会です。<br>モルモン教、統一教会、エホバの証人、オウム真理教などとは一切関係ありません。</p>
             </div>
         </div>
 
@@ -367,6 +366,132 @@
             <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next image" id="lightboxNext">›</button>
         </div>
     </div>
+    <script>
+        const fadeTargetsSelector = "[data-i18n], [data-i18n-html]";
+        const translations = {
+            ja: {
+                "nav.home": "HOME",
+                "nav.worship": "礼拝案内",
+                "hero.title": "Tokyo Oyama Christ Church",
+                "hero.subtitle": "神は愛です (God is love)",
+                "slogan.churchName": "東京大山キリスト教会",
+                "slogan.line1": "あなたの天幕に場所を広く取り、あなたの住まいの幕を広げ、<br>惜しまず綱を伸ばし、杭を堅く打て。",
+                "slogan.line2": "あなたは右に左に増え広がり、あなたの子孫は諸国の民の土地を継ぎ、<br>荒れ果てた町々には再び人が住む。",
+                "slogan.footer": "— イザヤ書 54:2-3",
+                "worship.sectionTitle": "礼拝時間のご案内",
+                "worship.item1.title": "🌅 早天礼拝（月~金曜日）：",
+                "worship.item1.time": "毎朝 5:50",
+                "worship.item1.desc": "一日の始まりを神様との時間で始めましょう。",
+                "worship.item2.title": "🌙 金曜徹夜礼拝：",
+                "worship.item2.time": "毎週金曜 21:00",
+                "worship.item2.desc": "深い祈りで心を癒し、神様の声に耳を傾けましょう。",
+                "worship.item3.title": "🇯🇵 主日礼拝（日本語）：",
+                "worship.item3.time": "日曜 10:00",
+                "worship.item3.desc": "地域の方々ともに礼拝を捧げます。",
+                "worship.item4.title": "🇰🇷 主日礼拝（韓国語）：",
+                "worship.item4.time": "日曜 14:00",
+                "worship.item4.desc": "韓国語で心を込めて賛美し、御言葉に耳を傾けます。",
+                "worship.interpretation": "韓国語、英語通訳あります。",
+                "map.title": "東京大山キリスト教会<br>⛪ 東京都板橋区板橋1-40-3",
+                "map.access1": "🚶‍♂️ 下板橋駅（東武東上線）より徒歩5分",
+                "map.access2": "🚶‍♀️ 板橋駅（JR埼京線）より徒歩8分",
+                "map.access3": "🚶‍♂️ 新板橋駅（三田線）より徒歩8分",
+                "map.disclaimer": "わたしたちの教会は伝統的なプロテスタントの教会です。<br>モルモン教、統一教会、エホバの証人、オウム真理教などとは一切関係ありません。"
+            },
+            en: {
+                "nav.home": "HOME",
+                "nav.worship": "Worship",
+                "hero.title": "Tokyo Oyama Christ Church",
+                "hero.subtitle": "God is Love",
+                "slogan.churchName": "Tokyo Oyama Christ Church",
+                "slogan.line1": "Enlarge the place of your tent, stretch your tent curtains wide,<br>do not hold back; lengthen your cords, strengthen your stakes.",
+                "slogan.line2": "For you will spread out to the right and to the left; your descendants will dispossess nations<br>and settle in their desolate cities.",
+                "slogan.footer": "— Isaiah 54:2-3",
+                "worship.sectionTitle": "Worship Schedule",
+                "worship.item1.title": "🌅 Early Morning Worship (Mon-Fri):",
+                "worship.item1.time": "5:50 AM every day",
+                "worship.item1.desc": "Begin your day with time in God's presence.",
+                "worship.item2.title": "🌙 Friday Night Prayer Service:",
+                "worship.item2.time": "Every Friday 9:00 PM",
+                "worship.item2.desc": "Find healing in deep prayer and listen for God's voice.",
+                "worship.item3.title": "🇯🇵 Sunday Worship (Japanese):",
+                "worship.item3.time": "Sunday 10:00 AM",
+                "worship.item3.desc": "We worship together with our local community.",
+                "worship.item4.title": "🇰🇷 Sunday Worship (Korean):",
+                "worship.item4.time": "Sunday 2:00 PM",
+                "worship.item4.desc": "We praise wholeheartedly in Korean and listen to the Word.",
+                "worship.interpretation": "Korean and English interpretation available.",
+                "map.title": "Tokyo Oyama Christ Church<br>⛪ 1-40-3 Itabashi, Itabashi-ku, Tokyo",
+                "map.access1": "🚶‍♂️ 5 minutes on foot from Shimo-Itabashi Station (Tobu Tojo Line)",
+                "map.access2": "🚶‍♀️ 8 minutes on foot from Itabashi Station (JR Saikyo Line)",
+                "map.access3": "🚶‍♂️ 8 minutes on foot from Shin-Itabashi Station (Mita Line)",
+                "map.disclaimer": "Our church is a traditional Protestant church.<br>We have no affiliation with Mormonism, the Unification Church, Jehovah's Witnesses, Aum Shinrikyo, or similar groups."
+            }
+        };
+
+        function applyTranslations(dict) {
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (dict[key]) {
+            el.textContent = dict[key];
+        }
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+        const key = el.dataset.i18nHtml;
+        if (dict[key]) {
+            el.innerHTML = dict[key];
+        }
+    });
+}
+
+function setLanguage(lang, withFade = false) {
+    const dict = translations[lang];
+    if (!dict) return;
+
+    document.documentElement.lang = lang;
+    localStorage.setItem("siteLang", lang);
+
+    document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.langButton === lang));
+    });
+
+    if (dict["meta.documentTitle"]) {
+        document.title = dict["meta.documentTitle"];
+    }
+
+    const fadeTargets = document.querySelectorAll(fadeTargetsSelector);
+
+    if (!withFade) {
+        applyTranslations(dict);
+        return;
+    }
+
+    fadeTargets.forEach((el) => {
+        el.classList.add("lang-fade-out");
+    });
+
+    window.setTimeout(() => {
+        applyTranslations(dict);
+
+        fadeTargets.forEach((el) => {
+            el.classList.remove("lang-fade-out");
+            el.classList.add("lang-fade-in");
+        });
+
+        window.setTimeout(() => {
+            fadeTargets.forEach((el) => {
+                el.classList.remove("lang-fade-in");
+            });
+        }, 260);
+    }, 180);
+}
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem("siteLang") || "ja";
+            setLanguage(savedLang, false);
+        });
+    </script>
 </body>
 
 </html>
